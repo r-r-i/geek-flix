@@ -1,3 +1,14 @@
-.navbar-test {
-    color: red;
+
+.navbar-container {
+    background-color: var(--color-static-grey-1);
+    height: 60px;
+    line-height: 60px;
+    border-radius: 5px;
+}
+.navbar-text {
+    display: inline-block;
+    color: var(--color-white-grey-2);
+    font-family: 'Audiowide', cursive;
+    font-size: 25px;
+    padding-left: 15px;
 }

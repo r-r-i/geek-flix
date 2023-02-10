@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+:root {
+    --main-bg-color: rgb(63, 63, 63);
+    --color-static-grey-1: #282a2d;
+    --color-white-grey-2: rgba(242, 243, 245, 0.95);
+}
+body {
+    background-color: var(--main-bg-color);
+}
