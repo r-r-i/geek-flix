@@ -1,21 +1,14 @@
-<div class="wrapper-grid">
+<div *ngFor="let result of movieData.results" class="wrapper-grid">
     <div class="container">
-      <img src='' alt='thumbnail' class="thumbnail-img">
+      <img src='https://image.tmdb.org/t/p/original{{result.poster_path}}' alt='thumbnail' class="thumbnail-img">
     </div>
-
-    <div class="container">
-        <img src='' alt='thumbnail' class="thumbnail-img">
-    </div>
-
-    <div class="container">
-        <img src='' alt='thumbnail' class="thumbnail-img">
-    </div>
-
-    <div class="container">
-        <img src='' alt='thumbnail' class="thumbnail-img">
-    </div>
-
-    
-
-   
 </div>
+
+<ul *ngFor='let result of movieData.results'>
+    <li>
+        Title: {{result.title}}
+    </li>
+    <li>
+        Thumbnail <b>{{result.backdrop_path}}</b>
+    </li>
+</ul>

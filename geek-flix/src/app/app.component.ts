@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MoviesService } from './movies.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,5 @@ import { MoviesService } from './movies.service';
 export class AppComponent {
   title = 'geek-flix';
 
-  constructor(private movie:MoviesService) {
-    this.movie.getData().subscribe(data => {
-      console.warn(data)
-    })
-  }
+  
 }

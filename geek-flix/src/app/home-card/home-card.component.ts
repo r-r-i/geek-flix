@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { tap } from 'rxjs';
+import { MovieDataService } from '../services/movie-data.service';
 
 @Component({
   selector: 'home-card',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-card.component.css']
 })
 export class HomeCardComponent {
+
+  movieData: any = {};
+  constructor(private movieDataService: MovieDataService) {}
+
+  ngOnInit(): void {
+    this.movieDataService.getData().subscribe((data) => {
+      this.movieData = data;
+      // JSON to console
+      console.warn(data);
+    })
+  }
+  
 
 }
