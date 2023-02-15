@@ -4,9 +4,14 @@
 </div>
 
 <div class="wrapper-grid">
-    <div *ngFor="let result of movieData.results" class="container">
-      <img routerLink="info" src='https://image.tmdb.org/t/p/w780{{result.poster_path}}' alt='thumbnail' class="thumbnail-img">
+    <div *ngFor="let result of movieData.results; index as id" class="container">
+      <img (click)="set_id(id)"  src='https://image.tmdb.org/t/p/w780{{result.poster_path}}' alt='thumbnail' class="thumbnail-img">
       <p class="home-text">{{result.title}}</p>
       <p class="home-date">{{result.release_date}}</p>
     </div>
 </div>
+
+<button (click)="sendData()">Send Data</button>
+
+
+<!-- routerLink="info" -->
