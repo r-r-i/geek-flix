@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  private messageSource = new BehaviorSubject<string>("default message");
-  currentMessage = this.messageSource.asObservable();
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  movieId = 505642;
+  getMovie() {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${this.movieId}?api_key=9279f87c4b7f1cb1474b6d7cd6958a6d&language=en-US`)
 
-  changeMessage(message: string) {
-    this.messageSource.next(message);
   }
+
 }

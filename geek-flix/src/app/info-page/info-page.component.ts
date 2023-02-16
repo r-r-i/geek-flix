@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MovieDataService } from '../services/movie-data.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'info-page',
@@ -8,13 +8,17 @@ import { MovieDataService } from '../services/movie-data.service';
 })
 export class InfoPageComponent {
   
-  data: string = '';
+  singleMovieData: any = {} ;
+  
+  constructor(private DataService: DataService) {}
 
-  constructor() {}
 
-  ngOnInit(): void {}
-  receiveData(data: string) {
-    this.data = data;
-  }
+  ngOnInit(): void {
+    this.DataService.getMovie().subscribe((data) => {
+      this.singleMovieData = data;
+      console.warn(data);
+    })
+   }
 
+ 
 }
