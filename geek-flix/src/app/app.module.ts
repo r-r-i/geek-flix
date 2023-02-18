@@ -13,7 +13,7 @@ import { InfoPageComponent } from './info-page/info-page.component';
     AppComponent,
     NavbarComponent,
     HomeCardComponent,
-    InfoPageComponent
+    InfoPageComponent,
   ],
   imports: [
     BrowserModule,
