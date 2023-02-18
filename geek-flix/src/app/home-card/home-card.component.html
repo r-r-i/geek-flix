@@ -21,7 +21,7 @@
     <BasicMovie [movie]="movie" (handleClick)='handleMovieClickEvent($event)'><BasicMovie>
     -->
     <p class="home-text">{{ movie.title }}</p>
-    <p id="home-date">{{ movie.release_date }}</p>
+    <p class="home-date">{{ movie.release_date }}</p>
   </div>
 
   <div *ngIf="selectedMovieId">

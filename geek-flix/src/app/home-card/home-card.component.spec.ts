@@ -1,4 +1,4 @@
-import { Spectator, createComponentFactory } from '@ngneat/spectator';
+import { Spectator, createComponentFactory, byTestId } from '@ngneat/spectator';
 import { of } from 'rxjs/internal/observable/of';
 import { MovieDataService } from '../services/movie-data.service';
 import {
@@ -8,8 +8,8 @@ import {
 
 import { HomeCardComponent } from './home-card.component';
 
-describe('HomeCardComponent', () => {
-  let component: HomeCardComponent;
+fdescribe('HomeCardComponent', () => {
+
   let spectator: Spectator<HomeCardComponent>;
   const createComponent = createComponentFactory({
     component: HomeCardComponent,
@@ -47,23 +47,26 @@ describe('HomeCardComponent', () => {
     // assert
     expect(spectator.component).toBeTruthy();
     expect(spectator.query('.home-text')).toHaveText('Blue Lagoon');
-    expect(spectator.query('#home-date')).toContainText('2023');
+    expect(spectator.query('.home-date')).toContainText('2023');
+
     // test that the image is there.
+    expect(spectator.query('.thumbnail-img')).toHaveAttribute('src');
+
   });
 
-  it('should show a message to the user when there are no movies', () => {
+  xit('should show a message to the user when there are no movies', () => {
   });
 
-  it('should allow a user to click on a movie and see the details component', () => {
+  xit('should allow a user to click on a movie and see the details component', () => {
   });
 
-  it('should ', () => {
+  xit('should ', () => {
   });
 
-  it('should ', () => {
+  xit('should ', () => {
   });
 
-  it('should ', () => {
+  xit('should ', () => {
   });
 
 });
