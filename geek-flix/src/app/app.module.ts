@@ -6,14 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeCardComponent } from './home-card/home-card.component';
-import { InfoPageComponent } from './info-page/info-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeCardComponent,
-    InfoPageComponent,
   ],
   imports: [
     BrowserModule,

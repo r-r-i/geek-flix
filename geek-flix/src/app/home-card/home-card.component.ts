@@ -39,7 +39,6 @@ export class HomeCardComponent {
     this.showDetailedMovie = true;
     this.selectedMovieId = movie.id;
     this.title = movie.title;
-    
     console.log(this.selectedMovieId);
     console.log(movie.title);
   }
