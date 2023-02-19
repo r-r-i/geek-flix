@@ -3,37 +3,47 @@
   <p class="scifi-home-low">Top-rated</p>
 </div>
 
-<div class="wrapper-grid">
-  <!-- TODO: Show the list in an *ngIf=showAll -->
-  <div *ngFor="let movie of movies" class="container">
-    <img
-      routerLink="/movieInfo"
-      src="https://image.tmdb.org/t/p/w780{{ movie.poster_path }}"
-      alt="thumbnail"
-      class="thumbnail-img"
-    />
-    <!-- <info-page [movie]="result"></info-page> -->
-    <!--
+<div *ngIf="showAll">
+  <div class="wrapper-grid">
+    <!-- TODO: Show the list in an *ngIf=showAll -->
+    <div *ngFor="let movie of movies" class="container">
+      <img
+        (click)="handleMovieClickEvent(movie)"
+        src="https://image.tmdb.org/t/p/w780{{ movie.poster_path }}"
+        alt="thumbnail"
+        class="thumbnail-img"
+      />
+      <p class="home-text">{{ movie.title }}</p>
+      <p class="home-date">{{ movie.release_date }}</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selectedMovieId && showDetailedMovie">
+  <!-- TODO: Show the detailed movie -->
+    <p>
+      {{ selectedMovieId }}
+    </p>
+    <p>
+      {{ title }}
+    </p>
+</div>
+
+<div *ngIf="noMovies">
+  <div class="home-warning">
+    <p>
+      Sorry, we currently cannot display any movies. Please try again later.
+    </p>
+  </div>
+  <!-- TODO: SHow something cool when there are no movies. -->
+</div>
+
+<!-- ///////////////////////////////////////////////////////////////// -->
+<!-- <info-page [movie]="result"></info-page> -->
+<!--
         TODO: Put the movie into a component and make sure it's in some sort of a container. On the container, register the click event.
       you could put the click event on the image, that's another way so nothing happens when they click on the title or date.
      -->
-    <!-- The following will be in a component
+<!-- The following will be in a component
     <BasicMovie [movie]="movie" (handleClick)='handleMovieClickEvent($event)'><BasicMovie>
     -->
-    <p class="home-text">{{ movie.title }}</p>
-    <p class="home-date">{{ movie.release_date }}</p>
-  </div>
-
-  <div *ngIf="selectedMovieId">
-    <!-- TODO: Show the detailed movie -->
-  </div>
-
-  <div *ngIf="noMoooovies">
-    <div class="home-warning">
-      <p>
-        Sorry, we currently cannot display any movies. Please try again later.
-      </p>
-    </div>
-    <!-- TODO: SHow something cool when there are no movies. -->
-  </div>
-</div>

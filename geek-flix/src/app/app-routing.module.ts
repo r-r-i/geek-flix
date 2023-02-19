@@ -8,10 +8,6 @@ const routes: Routes = [
     path: '',
     component: HomeCardComponent
   },
-  {
-    path: 'movieInfo',
-    component: InfoPageComponent
-  }
 ];
 
 @NgModule({

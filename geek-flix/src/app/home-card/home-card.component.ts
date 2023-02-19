@@ -15,7 +15,8 @@ export class HomeCardComponent {
   showAll = true;
   showDetailedMovie = false;
   selectedMovieId: number;
-  noMoooovies: boolean;
+  noMovies: boolean;
+  title: string;
 
   constructor(private movieDataService: MovieDataService) {}
 
@@ -28,13 +29,18 @@ export class HomeCardComponent {
         if (!this.selectedMovieId && this.movies.length > 0) {
           this.selectedMovieId = this.movies[0].id;
         } else if (this.movies.length == 0) {
-          this.noMoooovies = true;
+          this.noMovies = true;
         }
       });
   }
 
   handleMovieClickEvent(movie: IBasicMovie) {
-    this.showAll = false;
+    this.showAll = true;
     this.showDetailedMovie = true;
+    this.selectedMovieId = movie.id;
+    this.title = movie.title;
+    
+    console.log(this.selectedMovieId);
+    console.log(movie.title);
   }
 }

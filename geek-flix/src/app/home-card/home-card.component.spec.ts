@@ -75,12 +75,12 @@ fdescribe('HomeCardComponent', () => {
     expect(spectator.component).toBeTruthy();
 
     // test if warning message is shown
-    if (spectator.component.noMoooovies == true) {
+    if (spectator.component.noMovies == true) {
       expect(spectator.query('.home-warning')).toHaveText(
         'Sorry, we currently cannot display any movies. Please try again later.'
       );
     } else {
-      expect(spectator.component.noMoooovies == false);
+      expect(spectator.component.noMovies == false);
     }
   });
 
