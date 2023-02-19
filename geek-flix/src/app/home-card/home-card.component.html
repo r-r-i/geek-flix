@@ -21,12 +21,23 @@
 
 <div *ngIf="selectedMovieId && showDetailedMovie">
   <!-- TODO: Show the detailed movie -->
-    <p>
-      {{ selectedMovieId }}
-    </p>
-    <p>
-      {{ title }}
-    </p>
+  <div class="detailed-movie-card">
+    <div class="detailed-movie-thumbnail">
+      <img src="https://image.tmdb.org/t/p/original/{{backdrop}}" alt="detailed movie thumbnail">
+    </div>
+    <div class="detailed-movie-body">
+      <span class="detailed-movie-card-title">{{title}}</span>
+      <p class="detailed-movie-date">
+        <span>{{date}}</span>
+      </p>
+      <p class="detailed-movie-card-description">
+        {{description}}
+      </p>
+
+    </div>
+  </div>
+
+
 </div>
 
 <div *ngIf="noMovies">
@@ -39,7 +50,6 @@
 </div>
 
 <!-- ///////////////////////////////////////////////////////////////// -->
-<!-- <info-page [movie]="result"></info-page> -->
 <!--
         TODO: Put the movie into a component and make sure it's in some sort of a container. On the container, register the click event.
       you could put the click event on the image, that's another way so nothing happens when they click on the title or date.

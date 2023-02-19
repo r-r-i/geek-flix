@@ -11,7 +11,7 @@ import { HomeCardComponent } from './home-card/home-card.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeCardComponent,
+    HomeCardComponent
   ],
   imports: [
     BrowserModule,

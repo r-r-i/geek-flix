@@ -16,7 +16,12 @@ export class HomeCardComponent {
   showDetailedMovie = false;
   selectedMovieId: number;
   noMovies: boolean;
+
   title: string;
+  description: string;
+  backdrop: string;
+  date: string;
+  rating: number;
 
   constructor(private movieDataService: MovieDataService) {}
 
@@ -38,7 +43,13 @@ export class HomeCardComponent {
     this.showAll = true;
     this.showDetailedMovie = true;
     this.selectedMovieId = movie.id;
+
     this.title = movie.title;
+    this.description = movie.overview;
+    this.backdrop = movie.poster_path;
+    this.date = movie.release_date;
+    this.rating = movie.vote_average;
+
     console.log(this.selectedMovieId);
     console.log(movie.title);
   }
