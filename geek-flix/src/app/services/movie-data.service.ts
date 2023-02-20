@@ -17,7 +17,7 @@ export class MovieDataService {
     return this.http.get<IPaginatedMovies>('https://api.themoviedb.org/3/discover/movie?api_key=9279f87c4b7f1cb1474b6d7cd6958a6d&language=en-US&with_genres=878');
   };
 
-  public getSimiliarMovies(): Observable<IPaginatedMovies> {
+  public getSimilarMovies(): Observable<IPaginatedMovies> {
     return this.http.get<IPaginatedMovies>('https://api.themoviedb.org/3/movie/505642/similar?api_key=9279f87c4b7f1cb1474b6d7cd6958a6d&language=en-US');
   }
 
