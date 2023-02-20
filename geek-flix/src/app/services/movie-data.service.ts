@@ -15,9 +15,16 @@ export class MovieDataService {
   public getTopMovies(): Observable<IPaginatedMovies> {
     // TODO: Break up the string generation. Base, action, params, key
     return this.http.get<IPaginatedMovies>('https://api.themoviedb.org/3/discover/movie?api_key=9279f87c4b7f1cb1474b6d7cd6958a6d&language=en-US&with_genres=878');
+  };
+
+  public getSimiliarMovies(): Observable<IPaginatedMovies> {
+    return this.http.get<IPaginatedMovies>('https://api.themoviedb.org/3/movie/505642/similar?api_key=9279f87c4b7f1cb1474b6d7cd6958a6d&language=en-US');
   }
 
-  public getMovie(movieId: number) {
-    return this.http.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=9279f87c4b7f1cb1474b6d7cd6958a6d&language=en-US`)
-  }
+
+  // public getMovie(movieId: number) {
+  //   return this.http.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=9279f87c4b7f1cb1474b6d7cd6958a6d&language=en-US`)
+  // }
 }
+
+

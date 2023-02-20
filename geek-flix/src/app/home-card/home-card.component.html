@@ -23,21 +23,21 @@
   <!-- TODO: Show the detailed movie -->
   <div class="detailed-movie-card">
     <div class="detailed-movie-thumbnail">
-      <img src="https://image.tmdb.org/t/p/original/{{backdrop}}" alt="detailed movie thumbnail">
+      <img
+        src="https://image.tmdb.org/t/p/original/{{ backdrop }}"
+        alt="detailed movie thumbnail"
+      />
     </div>
     <div class="detailed-movie-body">
-      <span class="detailed-movie-card-title">{{title}}</span>
+      <span class="detailed-movie-card-title">{{ title }}</span>
       <p class="detailed-movie-date">
-        <span>{{date}}</span>
+        <span>{{ date }}</span>
       </p>
       <p class="detailed-movie-card-description">
-        {{description}}
+        {{ description }}
       </p>
-
     </div>
   </div>
-
-
 </div>
 
 <div *ngIf="noMovies">
