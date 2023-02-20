@@ -1,1 +1,18 @@
-<p>similar-movies works!</p>
+
+<div style="margin-left: 50px">
+  <h3 class="scifi-home-head">Similar Movies</h3>
+  <p class="scifi-home-low">Top-rated</p>
+</div>
+
+<div class="wrapper-grid">
+  <!-- TODO: Show the list in an *ngIf=showAll -->
+  <div *ngFor="let movie of movies" class="container">
+    <img
+      src="https://image.tmdb.org/t/p/w780{{ movie.poster_path }}"
+      alt="thumbnail"
+      class="thumbnail-img"
+    />
+    <p class="home-text">{{ movie.title }}</p>
+    <p class="home-date">{{ movie.release_date }}</p>
+  </div>
+</div>
