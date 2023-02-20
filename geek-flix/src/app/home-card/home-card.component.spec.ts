@@ -8,7 +8,7 @@ import {
 
 import { HomeCardComponent } from './home-card.component';
 
-fdescribe('HomeCardComponent', () => {
+describe('HomeCardComponent', () => {
   let spectator: Spectator<HomeCardComponent>;
   const createComponent = createComponentFactory({
     component: HomeCardComponent,
@@ -22,7 +22,7 @@ fdescribe('HomeCardComponent', () => {
 
   beforeEach(() => (spectator = createComponent()));
 
-  it('should show a list of movies when there is a collection from the server ', () => {
+  it('should show a list of movies when there is a collection returned from the server ', () => {
     // arrange
     // 1. setup the mock server to return a collection of 1 movies
     const movieDataService = spectator.inject(MovieDataService);
