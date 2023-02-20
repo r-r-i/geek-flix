@@ -2,4 +2,6 @@
 
 <router-outlet></router-outlet>
 
-<app-similar-movies></app-similar-movies>
+<home-card (showSimilarMovies)="showSimilarMovies = $event"></home-card>
+
+<app-similar-movies *ngIf="showSimilarMovies"></app-similar-movies>

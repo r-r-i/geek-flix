@@ -14,6 +14,7 @@ import {
 export class SimilarMoviesComponent {
   movies: IBasicMovie[];
 
+
   constructor(private movieDataService: MovieDataService) {}
 
   ngOnInit(): void {

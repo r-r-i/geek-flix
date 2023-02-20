@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { MovieDataService } from '../services/movie-data.service';
 import {
   IBasicMovie,
@@ -11,6 +11,8 @@ import {
   styleUrls: ['./home-card.component.css'],
 })
 export class HomeCardComponent {
+  @Output() showSimilarMovies = new EventEmitter<boolean>();
+
   movies: IBasicMovie[]; // TODO: Put in a type here
   showAll = true;
   showDetailedMovie = false;
@@ -38,6 +40,10 @@ export class HomeCardComponent {
         }
       });
   }
+  handleShowSimilarMovies() {
+    this.showSimilarMovies.emit(true);
+    console.log('hello');
+  }
 
   handleMovieClickEvent(movie: IBasicMovie) {
     this.showAll = true;
@@ -49,6 +55,8 @@ export class HomeCardComponent {
     this.backdrop = movie.poster_path;
     this.date = movie.release_date;
     this.rating = movie.vote_average;
+
+    this.handleShowSimilarMovies();
 
     console.log(this.selectedMovieId);
     console.log(movie.title);
