@@ -31,7 +31,7 @@ fdescribe('SimilarMoviesComponent', () => {
         adult: true,
         id: 0,
         title: 'Django Unchained',
-        poster_path: '"/7oWY8VDWW7thTzWh3OKYRkWUlD5.jpg"',
+        poster_path: '/7oWY8VDWW7thTzWh3OKYRkWUlD5.jpg',
         release_date: '2023-12-25',
       } as IBasicMovie,
     ];
