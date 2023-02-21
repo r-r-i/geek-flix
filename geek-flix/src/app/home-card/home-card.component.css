@@ -76,6 +76,19 @@ body {
     color: hsla(0, 0%, 100%, .45);
 
 }
+.movie-reactions {
+  display: flex;
+  flex-direction: row;
+}
+.reaction {
+  padding-top: 15px;
+  padding-right: 15px;
+  font-size: 17px;
+}
+.reaction:hover {
+  color: orange;
+  cursor: pointer;
+}
 
 /* ///////////////////////////////////////////////////////////////////////////////// */
 /* ////////////////////////////// DETAILED MOVIE CARD ////////////////////////////// */

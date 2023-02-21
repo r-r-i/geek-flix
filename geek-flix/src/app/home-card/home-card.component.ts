@@ -4,6 +4,9 @@ import {
   IBasicMovie,
   IPaginatedMovies,
 } from '../shared-types/paginated-movies.model';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'home-card',
@@ -19,10 +22,16 @@ export class HomeCardComponent {
   selectedMovieId: number;
   noMovies: boolean;
 
+  // icons
+  faArrowUp = faArrowUp;
+  faArrowDown = faArrowDown;
+  faHeart = faHeart;
+
+
   title: string;
-  description: string;
-  backdrop: string;
-  date: string;
+  overview: string;
+  poster: string;
+  release_date: string;
   rating: number;
 
   constructor(private movieDataService: MovieDataService) {}
@@ -51,9 +60,9 @@ export class HomeCardComponent {
     this.selectedMovieId = movie.id;
 
     this.title = movie.title;
-    this.description = movie.overview;
-    this.backdrop = movie.poster_path;
-    this.date = movie.release_date;
+    this.overview = movie.overview;
+    this.poster = movie.poster_path;
+    this.release_date = movie.release_date;
     this.rating = movie.vote_average;
 
     this.handleShowSimilarMovies();

@@ -23,18 +23,29 @@
   <div class="detailed-movie-card">
     <div class="detailed-movie-thumbnail">
       <img
-        src="https://image.tmdb.org/t/p/original/{{ backdrop }}"
+        src="https://image.tmdb.org/t/p/original/{{ poster }}"
         alt="detailed movie thumbnail"
       />
     </div>
     <div class="detailed-movie-body">
       <span class="detailed-movie-card-title">{{ title }}</span>
       <p class="detailed-movie-date">
-        <span>{{ date }}</span>
+        <span>{{ release_date }}</span>
       </p>
       <p class="detailed-movie-card-description">
-        {{ description }}
+        {{ overview }}
       </p>
+      <div class="movie-reactions">
+        <p class="reaction">
+          <fa-icon [icon]="faArrowUp"></fa-icon>
+        </p>
+        <p class="reaction">
+          <fa-icon [icon]="faArrowDown"></fa-icon>
+        </p>
+        <p class="reaction">
+          <fa-icon [icon]="faHeart"></fa-icon>
+        </p>
+      </div>
     </div>
   </div>
 </div>
