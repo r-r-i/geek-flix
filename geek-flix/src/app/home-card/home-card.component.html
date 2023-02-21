@@ -37,13 +37,22 @@
       </p>
       <div class="movie-reactions">
         <p class="reaction">
-          <fa-icon [icon]="faArrowUp"></fa-icon>
+          <fa-icon
+          [ngClass]="{'active-reaction' : upReactionActive}"
+          (click)="saveUpReaction()"
+          [icon]="faArrowUp"></fa-icon>
         </p>
         <p class="reaction">
-          <fa-icon [icon]="faArrowDown"></fa-icon>
+          <fa-icon
+          [ngClass]="{'active-reaction' : downReactionActive}"
+          (click)="saveDownReaction()"
+          [icon]="faArrowDown"></fa-icon>
         </p>
         <p class="reaction">
-          <fa-icon [icon]="faHeart"></fa-icon>
+          <fa-icon
+          [ngClass]="{'active-reaction' : starReactionActive}"
+          (click)="saveStarReaction()"
+          [icon]="faHeart"></fa-icon>
         </p>
       </div>
     </div>

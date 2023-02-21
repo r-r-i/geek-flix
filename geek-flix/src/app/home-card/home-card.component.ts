@@ -26,6 +26,10 @@ export class HomeCardComponent {
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   faHeart = faHeart;
+  // active icons
+  upReactionActive = false;
+  downReactionActive = false;
+  starReactionActive = false;
 
 
   title: string;
@@ -69,5 +73,38 @@ export class HomeCardComponent {
 
     console.log(this.selectedMovieId);
     console.log(movie.title);
+  }
+  saveUpReaction() {
+    let reaction = {
+      id: this.selectedMovieId,
+      name: this.title,
+      reaction: 'upvote'
+    };
+    localStorage.setItem(this.title, JSON.stringify(reaction));
+    this.downReactionActive = false;
+    this.starReactionActive = false;
+    this.upReactionActive = true;
+  }
+  saveDownReaction() {
+    let reaction = {
+      id: this.selectedMovieId,
+      name: this.title,
+      reaction: 'downvote'
+    };
+    localStorage.setItem(this.title, JSON.stringify(reaction));
+    this.upReactionActive = false;
+    this.starReactionActive = false;
+    this.downReactionActive = true;
+  }
+  saveStarReaction() {
+    let reaction = {
+      id: this.selectedMovieId,
+      name: this.title,
+      reaction: 'favourite'
+    };
+    localStorage.setItem(this.title, JSON.stringify(reaction));
+    this.upReactionActive = false;
+    this.downReactionActive = false;
+    this.starReactionActive = true;
   }
 }
