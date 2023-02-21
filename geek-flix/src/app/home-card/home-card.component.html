@@ -39,13 +39,13 @@
         <p class="reaction">
           <fa-icon
           [ngClass]="{'active-reaction' : upReactionActive}"
-          (click)="saveUpReaction()"
+          (click)="saveUpvoteReaction()"
           [icon]="faArrowUp"></fa-icon>
         </p>
         <p class="reaction">
           <fa-icon
           [ngClass]="{'active-reaction' : downReactionActive}"
-          (click)="saveDownReaction()"
+          (click)="saveDownvoteReaction()"
           [icon]="faArrowDown"></fa-icon>
         </p>
         <p class="reaction">

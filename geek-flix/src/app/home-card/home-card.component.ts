@@ -74,7 +74,7 @@ export class HomeCardComponent {
     console.log(this.selectedMovieId);
     console.log(movie.title);
   }
-  saveUpReaction() {
+  saveUpvoteReaction() {
     let reaction = {
       id: this.selectedMovieId,
       name: this.title,
@@ -85,7 +85,7 @@ export class HomeCardComponent {
     this.starReactionActive = false;
     this.upReactionActive = true;
   }
-  saveDownReaction() {
+  saveDownvoteReaction() {
     let reaction = {
       id: this.selectedMovieId,
       name: this.title,
