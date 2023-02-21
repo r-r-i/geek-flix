@@ -76,3 +76,53 @@ body {
   color: hsla(0, 0%, 100%, .45);
 
 }
+
+/* ///////////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////// DETAILED MOVIE CARD ////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////// */
+.detailed-movie-card {
+  width: 650px;
+  height: 350px;
+  display: flex;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+  margin: auto;
+}
+.detailed-movie-thumbnail {
+  position: relative;
+  width: 250px;
+  overflow: hidden;
+}
+.detailed-movie-thumbnail img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.detailed-movie-body {
+  width: 400px;
+  padding: 2rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  font-size: 15px;
+}
+.detailed-movie-card-title {
+  color: #fff;
+  font-size: 22px;
+  font-family: Open Sans Regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  letter-spacing: 2px;
+}
+span {
+  font-family: Open Sans Regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+}
+.detailed-movie-card-description {
+  font-family: Open Sans Regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+}
+.detailed-movie-date {
+  color: hsla(0, 0%, 100%, .45);
+
+}

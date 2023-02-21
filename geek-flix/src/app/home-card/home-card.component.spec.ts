@@ -8,7 +8,7 @@ import {
 
 import { HomeCardComponent } from './home-card.component';
 
-describe('HomeCardComponent', () => {
+fdescribe('HomeCardComponent', () => {
   let spectator: Spectator<HomeCardComponent>;
   const createComponent = createComponentFactory({
     component: HomeCardComponent,

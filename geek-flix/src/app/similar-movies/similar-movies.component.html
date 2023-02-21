@@ -6,11 +6,32 @@
 <div class="wrapper-grid">
   <div *ngFor="let movie of movies" class="container">
     <img
+      (click)="handleMovieClickEvent(movie)"
       src="https://image.tmdb.org/t/p/w780{{ movie.poster_path }}"
       alt="thumbnail"
       class="thumbnail-img"
     />
     <p class="home-text">{{ movie.title }}</p>
     <p class="home-date">{{ movie.release_date }}</p>
+  </div>
+</div>
+
+<div *ngIf="selectedMovieId && showDetailedMovie">
+  <div class="detailed-movie-card">
+    <div class="detailed-movie-thumbnail">
+      <img
+        src="https://image.tmdb.org/t/p/original/{{ backdrop }}"
+        alt="detailed movie thumbnail"
+      />
+    </div>
+    <div class="detailed-movie-body">
+      <span class="detailed-movie-card-title">{{ title }}</span>
+      <p class="detailed-movie-date">
+        <span>{{ date }}</span>
+      </p>
+      <p class="detailed-movie-card-description">
+        {{ description }}
+      </p>
+    </div>
   </div>
 </div>

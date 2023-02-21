@@ -9,7 +9,7 @@ import {
 
 import { SimilarMoviesComponent } from './similar-movies.component';
 
-fdescribe('SimilarMoviesComponent', () => {
+describe('SimilarMoviesComponent', () => {
   let spectator: Spectator<SimilarMoviesComponent>;
   const createComponent = createComponentFactory({
     component: SimilarMoviesComponent,
