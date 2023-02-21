@@ -30,6 +30,7 @@ export class HomeCardComponent {
   upReactionActive = false;
   downReactionActive = false;
   starReactionActive = false;
+  reactionData: any;
 
 
   title: string;
@@ -55,9 +56,7 @@ export class HomeCardComponent {
   }
   handleShowSimilarMovies() {
     this.showSimilarMovies.emit(true);
-    console.log('hello');
   }
-
   handleMovieClickEvent(movie: IBasicMovie) {
     this.showAll = true;
     this.showDetailedMovie = true;
@@ -70,9 +69,28 @@ export class HomeCardComponent {
     this.rating = movie.vote_average;
 
     this.handleShowSimilarMovies();
-
-    console.log(this.selectedMovieId);
-    console.log(movie.title);
+    this.loadReaction();
+  }
+  loadReaction() {
+    let reaction: any = localStorage.getItem(this.title);
+    this.reactionData = JSON.parse(reaction);
+    if (!this.reactionData) {
+      this.upReactionActive = false;
+      this.downReactionActive = false;
+      this.starReactionActive = false;
+    } else if (this.selectedMovieId = this.reactionData.id && this.reactionData.reaction == 'upvote') {
+      this.upReactionActive = true;
+      this.downReactionActive = false;
+      this.starReactionActive = false;
+    } else if (this.selectedMovieId = this.reactionData.id && this.reactionData.reaction == 'downvote') {
+      this.downReactionActive = true;
+      this.upReactionActive = false;
+      this.starReactionActive = false;
+    } else if (this.selectedMovieId = this.reactionData.id && this.reactionData.reaction == 'favourite') {
+      this.starReactionActive = true;
+      this.upReactionActive = false;
+      this.downReactionActive = false;
+    }
   }
   saveUpvoteReaction() {
     let reaction = {
@@ -81,9 +99,7 @@ export class HomeCardComponent {
       reaction: 'upvote'
     };
     localStorage.setItem(this.title, JSON.stringify(reaction));
-    this.downReactionActive = false;
-    this.starReactionActive = false;
-    this.upReactionActive = true;
+    this.loadReaction();
   }
   saveDownvoteReaction() {
     let reaction = {
@@ -92,9 +108,8 @@ export class HomeCardComponent {
       reaction: 'downvote'
     };
     localStorage.setItem(this.title, JSON.stringify(reaction));
-    this.upReactionActive = false;
-    this.starReactionActive = false;
-    this.downReactionActive = true;
+    this.loadReaction();
+
   }
   saveStarReaction() {
     let reaction = {
@@ -103,8 +118,6 @@ export class HomeCardComponent {
       reaction: 'favourite'
     };
     localStorage.setItem(this.title, JSON.stringify(reaction));
-    this.upReactionActive = false;
-    this.downReactionActive = false;
-    this.starReactionActive = true;
+    this.loadReaction();
   }
 }
