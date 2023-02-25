@@ -42,6 +42,7 @@ export class SimilarMoviesComponent {
 
 
   handleMovieClickEvent(movie: IBasicMovie) {
+    console.log(`*** MovieDataService.handleMovieClickEvent We're in the handling of the movie click event thing`);
     this.selectedMovieId = movie.id;
     this.showDetailedMovie = true;
 

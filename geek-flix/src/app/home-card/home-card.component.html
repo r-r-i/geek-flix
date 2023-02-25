@@ -38,21 +38,24 @@
       <div class="movie-reactions">
         <p class="reaction">
           <fa-icon
-          [ngClass]="{'active-reaction' : upReactionActive}"
-          (click)="saveUpvoteReaction()"
-          [icon]="faArrowUp"></fa-icon>
+            [ngClass]="{ 'active-reaction': upReactionActive }"
+            (click)="saveUpvoteReaction()"
+            [icon]="faArrowUp"
+          ></fa-icon>
         </p>
         <p class="reaction">
           <fa-icon
-          [ngClass]="{'active-reaction' : downReactionActive}"
-          (click)="saveDownvoteReaction()"
-          [icon]="faArrowDown"></fa-icon>
+            [ngClass]="{ 'active-reaction': downReactionActive }"
+            (click)="saveDownvoteReaction()"
+            [icon]="faArrowDown"
+          ></fa-icon>
         </p>
         <p class="reaction">
           <fa-icon
-          [ngClass]="{'active-reaction' : starReactionActive}"
-          (click)="saveStarReaction()"
-          [icon]="faHeart"></fa-icon>
+            [ngClass]="{ 'active-reaction': starReactionActive }"
+            (click)="saveStarReaction()"
+            [icon]="faHeart"
+          ></fa-icon>
         </p>
       </div>
     </div>

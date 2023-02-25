@@ -21,3 +21,9 @@ export interface IBasicMovie {
     vote_average: number;
     vote_count: number;
 }
+
+export interface IReactions {
+  id: number;
+  name: string;
+  reaction: string;
+}
