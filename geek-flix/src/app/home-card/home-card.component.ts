@@ -22,6 +22,8 @@ export class HomeCardComponent {
   showDetailedMovie = false;
   selectedMovieId: number;
   noMovies: boolean;
+  // id used for getting similarMovies by id
+  movieId: number;
 
   // icons
   faArrowUp = faArrowUp;
@@ -53,10 +55,15 @@ export class HomeCardComponent {
           this.noMovies = true;
         }
       });
+    this.movieDataService.currentMovieId.subscribe(movieId => this.movieId = movieId);
   }
 
   handleShowSimilarMovies() {
     this.showSimilarMovies.emit(true);
+  }
+  newMovieId() {
+    this.movieDataService.changeMovieId(this.selectedMovieId);
+    console.log('change movieId was exec')
   }
 
   handleMovieClickEvent(movie: IBasicMovie) {
@@ -69,13 +76,11 @@ export class HomeCardComponent {
     this.release_date = movie.release_date;
     this.rating = movie.vote_average;
 
+    // this.movieId = this.selectedMovieId;
+    this.newMovieId();
+    // this.movieDataService.getSimilarMovies(this.movieId)
     this.loadReaction();
     this.handleShowSimilarMovies();
-  }
-
-  showMovieDetails(): boolean {
-    const showMovie = this.selectedMovieId > 0 && this.showDetailedMovie;
-    return showMovie;
   }
 
   loadReaction() {

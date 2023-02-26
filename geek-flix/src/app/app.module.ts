@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeCardComponent } from './home-card/home-card.component';
 import { SimilarMoviesComponent } from './similar-movies/similar-movies.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

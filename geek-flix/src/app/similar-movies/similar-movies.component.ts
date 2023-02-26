@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { MovieDataService } from '../services/movie-data.service';
 import {
   IBasicMovie,
@@ -24,11 +24,15 @@ export class SimilarMoviesComponent {
   date: string;
   rating: number;
 
+  movieId: number;
+
   constructor(private movieDataService: MovieDataService) {}
 
   ngOnInit(): void {
+    this.movieDataService.currentMovieId.subscribe(movieId => this.movieId = movieId);
+    console.log('movieId OnInit', this.movieId);
     this.movieDataService
-      .getSimilarMovies()
+      .getSimilarMovies(this.movieId)
       .subscribe((paginatedMovies: IPaginatedMovies) => {
         this.movies = paginatedMovies.results;
         console.warn(paginatedMovies);
@@ -42,7 +46,6 @@ export class SimilarMoviesComponent {
 
 
   handleMovieClickEvent(movie: IBasicMovie) {
-    console.log(`*** MovieDataService.handleMovieClickEvent We're in the handling of the movie click event thing`);
     this.selectedMovieId = movie.id;
     this.showDetailedMovie = true;
 
