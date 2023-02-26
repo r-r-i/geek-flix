@@ -29,6 +29,9 @@ export class SimilarMoviesComponent {
   constructor(private movieDataService: MovieDataService) {}
 
   ngOnInit(): void {
+    this.handleSimilarMovieData();
+  }
+  handleSimilarMovieData() {
     this.movieDataService.currentMovieId.subscribe(movieId => this.movieId = movieId);
     console.log('movieId OnInit', this.movieId);
     this.movieDataService

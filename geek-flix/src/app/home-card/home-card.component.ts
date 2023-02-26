@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild, ViewChildren } from '@angular/core';
 import { MovieDataService } from '../services/movie-data.service';
 import {
   IBasicMovie,
@@ -8,6 +8,7 @@ import {
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { SimilarMoviesComponent } from '../similar-movies/similar-movies.component';
 
 @Component({
   selector: 'home-card',
@@ -60,6 +61,7 @@ export class HomeCardComponent {
 
   handleShowSimilarMovies() {
     this.showSimilarMovies.emit(true);
+
   }
   newMovieId() {
     this.movieDataService.changeMovieId(this.selectedMovieId);
@@ -76,13 +78,11 @@ export class HomeCardComponent {
     this.release_date = movie.release_date;
     this.rating = movie.vote_average;
 
-    // this.movieId = this.selectedMovieId;
     this.newMovieId();
-    // this.movieDataService.getSimilarMovies(this.movieId)
     this.loadReaction();
     this.handleShowSimilarMovies();
-  }
 
+  }
   loadReaction() {
     this.reactionData = JSON.parse(localStorage.getItem(this.title) || '{}');
 

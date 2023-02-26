@@ -38,10 +38,6 @@ body {
   clip-path: (60px at center);
   border-radius: 2px;
 }
-.thumbnail-img:hover {
-  border: 3px solid orange;
-  cursor: pointer;
-}
 .home-text {
   color: #fff;
   opacity: 95%;
