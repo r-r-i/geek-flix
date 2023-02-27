@@ -1,9 +1,12 @@
-<div style="margin-left: 50px">
-  <h3 class="scifi-home-head">Science Fiction</h3>
-  <p class="scifi-home-low">Top-rated</p>
+<div *ngIf="!noMovies">
+  <div style="margin-left: 50px">
+    <h3 class="scifi-home-head">Science Fiction</h3>
+    <p class="scifi-home-low">Top-rated</p>
+  </div>
 </div>
 
-<div>
+
+<div *ngIf="!noMovies">
   <div class="wrapper-grid">
     <!-- TODO: Show the list in an *ngIf=showAll -->
     <div *ngFor="let movie of movies" class="container">
@@ -63,10 +66,13 @@
 </div>
 
 <div *ngIf="noMovies">
-  <div class="home-warning">
-    <p>
-      Sorry, we currently cannot display any movies. Please try again later.
-    </p>
+  <div class="noMoviesContainer">
+      <div class="noMoviesImage"></div>
+    <div class="noMoviesText">
+      <p>
+        An error has occurred and we're working on it. Please try again later.
+      </p>
+    </div>
   </div>
 </div>
 

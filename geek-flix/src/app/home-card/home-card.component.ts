@@ -62,6 +62,7 @@ export class HomeCardComponent {
     this.showDetailedMovie = true;
     this.selectedMovieId = movie.id;
     this.showSimilarMovies = true;
+
     this.loadReaction();
     console.log('movieSelected.id:', this.movieSelected.id);
     this.initMovies();

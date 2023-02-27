@@ -92,6 +92,29 @@ body {
 .active-reaction {
   color: orange;
 }
+/* ///////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////// NO MOVIES DISPLAY ////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////// */
+
+.noMoviesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 100px;
+}
+.noMoviesImage {
+  width: 100%;
+  height: 250px;
+  background-image: url(https://media0.giphy.com/media/husw7QNqjBfACVSRYd/giphy.gif?cid=ecf05e477f5n2419ti9mc54bxy3gznmym7eee06inn4832a2&rid=giphy.gif&ct=s);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.noMoviesText {
+  font-family: Open Sans Regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
+  color: hsla(0, 0%, 100%, .45);
+}
+
 
 /* ///////////////////////////////////////////////////////////////////////////////// */
 /* ////////////////////////////// DETAILED MOVIE CARD ////////////////////////////// */
@@ -142,6 +165,8 @@ span {
   color: hsla(0, 0%, 100%, .45);
 
 }
+
+
 
 
 
