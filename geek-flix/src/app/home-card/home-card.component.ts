@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, ViewChild, ViewChildren } from '@angular/core';
+import { Component } from '@angular/core';
 import { MovieDataService } from '../services/movie-data.service';
 import {
   IBasicMovie,
@@ -15,36 +15,35 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./home-card.component.css'],
 })
 export class HomeCardComponent {
-  showSimilarMovies: boolean;
 
   movies: IBasicMovie[];
   movieSelected: IBasicMovie;
-  showAll = true;
-  showDetailedMovie = false;
   selectedMovieId: number;
-  noMovies: boolean;
-  // id used for getting similarMovies by id
   movieId: number;
+  noMovies: boolean;
+  reactionData: IReactions;
+  showDetailedMovie = false;
+  showSimilarMovies: boolean;
 
   // icons
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   faHeart = faHeart;
-  // active icons
+  // active icon class dependency
   upReactionActive = false;
   downReactionActive = false;
   starReactionActive = false;
-  reactionData: IReactions;
+
 
   constructor(private movieDataService: MovieDataService) {}
 
   ngOnInit(): void {
     this.initMovies();
   }
-
   private initMovies() {
-    this.movieDataService.getTopMovies().subscribe(
-      (paginatedMovies: IPaginatedMovies) => {
+    this.movieDataService
+      .getTopMovies()
+      .subscribe((paginatedMovies: IPaginatedMovies) => {
         this.movies = paginatedMovies.results;
         console.warn(paginatedMovies);
         if (!this.selectedMovieId && this.movies.length > 0) {
@@ -53,60 +52,44 @@ export class HomeCardComponent {
           this.noMovies = true;
         }
       });
-
-    this.movieDataService.currentMovieId.subscribe(
-      movieId => {
-        this.movieId = movieId;
-        console.log(movieId)
-      });
+    this.movieDataService.currentMovieId.subscribe((movieId) => {
+      this.movieId = movieId;
+      console.log('movieId:', movieId);
+    });
   }
-
   handleMovieClickEvent(movie: IBasicMovie) {
     this.movieSelected = movie;
-    this.showAll = true;
     this.showDetailedMovie = true;
     this.selectedMovieId = movie.id;
     this.showSimilarMovies = true;
     this.loadReaction();
+    console.log('movieSelected.id:', this.movieSelected.id);
+    this.initMovies();
   }
-
-  handleSimilarMovieClicked(movie: IBasicMovie){
+  handleSimilarMovieClicked(movie: IBasicMovie) {
     this.movieSelected = movie;
     this.loadReaction();
   }
-
   loadReaction() {
-    this.reactionData = JSON.parse(localStorage.getItem(this.movieSelected.title) || '{}');
+    this.reactionData = JSON.parse(
+      localStorage.getItem(this.movieSelected.title) || '{}'
+    );
 
     if (this.reactionData.id == null && this.reactionData.name == null && this.reactionData.reaction == null) {
       this.upReactionActive = false;
       this.downReactionActive = false;
       this.starReactionActive = false;
-    }
-    if (this.selectedMovieId === this.reactionData.id) {
-      if (this.reactionData.reaction === 'upvote') {
-        this.upReactionActive = true;
-        this.downReactionActive = false;
-        this.starReactionActive = false;
-        return;
-      }
-    }
-    if (this.reactionData.reaction == 'downvote') {
-      this.upReactionActive = false;
-      this.downReactionActive = true;
-      this.starReactionActive = false;
       return;
     }
-    if (this.reactionData.reaction == 'favourite') {
-      this.upReactionActive = false;
-      this.downReactionActive = false;
-      this.starReactionActive = true;
-      return;
-    }
+
+    this.upReactionActive = this.reactionData.reaction == 'upvote';
+    this.downReactionActive = this.reactionData.reaction == 'downvote';
+    this.starReactionActive = this.reactionData.reaction == 'favourite';
+    return;
   }
   saveUpvoteReaction() {
     let reaction = {
-      id: this.selectedMovieId,
+      id: this.movieSelected.id,
       name: this.movieSelected.title,
       reaction: 'upvote',
     };
@@ -115,7 +98,7 @@ export class HomeCardComponent {
   }
   saveDownvoteReaction() {
     let reaction = {
-      id: this.selectedMovieId,
+      id: this.movieSelected.id,
       name: this.movieSelected.title,
       reaction: 'downvote',
     };
@@ -124,7 +107,7 @@ export class HomeCardComponent {
   }
   saveStarReaction() {
     let reaction = {
-      id: this.selectedMovieId,
+      id: this.movieSelected.id,
       name: this.movieSelected.title,
       reaction: 'favourite',
     };

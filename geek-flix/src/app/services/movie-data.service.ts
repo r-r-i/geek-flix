@@ -16,6 +16,7 @@ export class MovieDataService {
 
   constructor(private http: HttpClient) { }
 
+
   changeMovieId(movieId: number) {
     this.movieIdSource.next(movieId);
     this.getSimilarMovies(movieId);
