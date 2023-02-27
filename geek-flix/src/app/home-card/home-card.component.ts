@@ -8,7 +8,6 @@ import {
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { SimilarMoviesComponent } from '../similar-movies/similar-movies.component';
 
 @Component({
   selector: 'home-card',
@@ -16,9 +15,10 @@ import { SimilarMoviesComponent } from '../similar-movies/similar-movies.compone
   styleUrls: ['./home-card.component.css'],
 })
 export class HomeCardComponent {
-  @Output() showSimilarMovies = new EventEmitter<boolean>();
+  showSimilarMovies: boolean;
 
   movies: IBasicMovie[];
+  movieSelected: IBasicMovie;
   showAll = true;
   showDetailedMovie = false;
   selectedMovieId: number;
@@ -36,18 +36,15 @@ export class HomeCardComponent {
   starReactionActive = false;
   reactionData: IReactions;
 
-  title: string;
-  overview: string;
-  poster: string;
-  release_date: string;
-  rating: number;
-
   constructor(private movieDataService: MovieDataService) {}
 
   ngOnInit(): void {
-    this.movieDataService
-      .getTopMovies()
-      .subscribe((paginatedMovies: IPaginatedMovies) => {
+    this.initMovies();
+  }
+
+  private initMovies() {
+    this.movieDataService.getTopMovies().subscribe(
+      (paginatedMovies: IPaginatedMovies) => {
         this.movies = paginatedMovies.results;
         console.warn(paginatedMovies);
         if (!this.selectedMovieId && this.movies.length > 0) {
@@ -56,35 +53,30 @@ export class HomeCardComponent {
           this.noMovies = true;
         }
       });
-    this.movieDataService.currentMovieId.subscribe(movieId => this.movieId = movieId);
-  }
 
-  handleShowSimilarMovies() {
-    this.showSimilarMovies.emit(true);
-
-  }
-  newMovieId() {
-    this.movieDataService.changeMovieId(this.selectedMovieId);
-    console.log('change movieId was exec')
+    this.movieDataService.currentMovieId.subscribe(
+      movieId => {
+        this.movieId = movieId;
+        console.log(movieId)
+      });
   }
 
   handleMovieClickEvent(movie: IBasicMovie) {
+    this.movieSelected = movie;
     this.showAll = true;
     this.showDetailedMovie = true;
     this.selectedMovieId = movie.id;
-    this.title = movie.title;
-    this.overview = movie.overview;
-    this.poster = movie.poster_path;
-    this.release_date = movie.release_date;
-    this.rating = movie.vote_average;
-
-    this.newMovieId();
+    this.showSimilarMovies = true;
     this.loadReaction();
-    this.handleShowSimilarMovies();
-
   }
+
+  handleSimilarMovieClicked(movie: IBasicMovie){
+    this.movieSelected = movie;
+    this.loadReaction();
+  }
+
   loadReaction() {
-    this.reactionData = JSON.parse(localStorage.getItem(this.title) || '{}');
+    this.reactionData = JSON.parse(localStorage.getItem(this.movieSelected.title) || '{}');
 
     if (this.reactionData.id == null && this.reactionData.name == null && this.reactionData.reaction == null) {
       this.upReactionActive = false;
@@ -115,28 +107,28 @@ export class HomeCardComponent {
   saveUpvoteReaction() {
     let reaction = {
       id: this.selectedMovieId,
-      name: this.title,
+      name: this.movieSelected.title,
       reaction: 'upvote',
     };
-    localStorage.setItem(this.title, JSON.stringify(reaction));
+    localStorage.setItem(this.movieSelected.title, JSON.stringify(reaction));
     this.loadReaction();
   }
   saveDownvoteReaction() {
     let reaction = {
       id: this.selectedMovieId,
-      name: this.title,
+      name: this.movieSelected.title,
       reaction: 'downvote',
     };
-    localStorage.setItem(this.title, JSON.stringify(reaction));
+    localStorage.setItem(this.movieSelected.title, JSON.stringify(reaction));
     this.loadReaction();
   }
   saveStarReaction() {
     let reaction = {
       id: this.selectedMovieId,
-      name: this.title,
+      name: this.movieSelected.title,
       reaction: 'favourite',
     };
-    localStorage.setItem(this.title, JSON.stringify(reaction));
+    localStorage.setItem(this.movieSelected.title, JSON.stringify(reaction));
     this.loadReaction();
   }
 }

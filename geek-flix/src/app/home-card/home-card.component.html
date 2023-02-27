@@ -23,17 +23,17 @@
   <div class="detailed-movie-card">
     <div class="detailed-movie-thumbnail">
       <img
-        src="https://image.tmdb.org/t/p/original/{{ poster }}"
+        src="https://image.tmdb.org/t/p/original/{{ movieSelected.poster_path }}"
         alt="detailed movie thumbnail"
       />
     </div>
     <div class="detailed-movie-body">
-      <span class="detailed-movie-card-title">{{ title }}</span>
+      <span class="detailed-movie-card-title">{{ movieSelected.title }}</span>
       <p class="detailed-movie-date">
-        <span>{{ release_date }}</span>
+        <span>{{ movieSelected.release_date }}</span>
       </p>
       <p class="detailed-movie-card-description">
-        {{ overview }}
+        {{ movieSelected.overview }}
       </p>
       <div class="movie-reactions">
         <p class="reaction">
@@ -68,14 +68,7 @@
       Sorry, we currently cannot display any movies. Please try again later.
     </p>
   </div>
-  <!-- TODO: SHow something cool when there are no movies. -->
 </div>
 
-<!-- ///////////////////////////////////////////////////////////////// -->
-<!--
-        TODO: Put the movie into a component and make sure it's in some sort of a container. On the container, register the click event.
-      you could put the click event on the image, that's another way so nothing happens when they click on the title or date.
-     -->
-<!-- The following will be in a component
-    <BasicMovie [movie]="movie" (handleClick)='handleMovieClickEvent($event)'><BasicMovie>
-    -->
+<app-similar-movies *ngIf="showSimilarMovies" [movieId]="movieSelected.id" (movieClicked)="handleSimilarMovieClicked($event)"></app-similar-movies>
+
