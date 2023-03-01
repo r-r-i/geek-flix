@@ -8,6 +8,7 @@ import {
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faImdb } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'home-card',
@@ -29,6 +30,7 @@ export class HomeCardComponent {
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   faHeart = faHeart;
+  faImdb = faImdb;
   // active icon class dependency
   upReactionActive = false;
   downReactionActive = false;
