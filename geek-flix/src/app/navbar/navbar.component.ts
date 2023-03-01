@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -9,5 +8,4 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent {
 
-  faHeart = faHeart;
 }

@@ -9,7 +9,7 @@ import { HomeCardComponent } from './home-card/home-card.component';
 import { SimilarMoviesComponent } from './similar-movies/similar-movies.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
-import { FavPageComponent } from './fav-page/fav-page.component';
+import { FavMovieComponent } from './fav-movie/fav-movie.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { FavPageComponent } from './fav-page/fav-page.component';
     NavbarComponent,
     HomeCardComponent,
     SimilarMoviesComponent,
-    FavPageComponent
+    FavMovieComponent
   ],
   imports: [
     BrowserModule,

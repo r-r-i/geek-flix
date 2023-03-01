@@ -25,6 +25,7 @@ export class HomeCardComponent {
   reactionData: IReactions;
   showDetailedMovie = false;
   showSimilarMovies: boolean;
+  message = 'hello world';
 
   // icons
   faArrowUp = faArrowUp;
