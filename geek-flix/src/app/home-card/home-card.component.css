@@ -39,7 +39,7 @@ body {
     border-radius: 2px;
 }
 .thumbnail-img:hover {
-    border: 3px solid orange;
+    border: 1.5px solid hsla(0, 0%, 100%, .45); ;
     cursor: pointer;
 }
 .home-text {
@@ -86,11 +86,12 @@ body {
   font-size: 17px;
 }
 .reaction:hover {
-  color: orange;
+  color: greenyellow;
   cursor: pointer;
 }
 .active-reaction {
-  color: orange;
+  color: greenyellow;
+
 }
 /* ///////////////////////////////////////////////////////////////////////////////// */
 /* //////////////////////////////// NO MOVIES DISPLAY ////////////////////////////// */
@@ -166,11 +167,11 @@ span {
 }
 .detailed-movie-rating {
   font-family: Open Sans Regular,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;
-  color: orange;
   font-weight: 500;
 }
 .imdb {
   font-weight: bold;
+  color: orange;
 }
 
 
