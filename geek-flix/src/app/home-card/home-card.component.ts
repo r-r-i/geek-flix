@@ -42,6 +42,7 @@ export class HomeCardComponent {
 
   ngOnInit(): void {
     this.initMovies();
+
   }
   private initMovies() {
     this.movieDataService

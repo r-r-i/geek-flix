@@ -2,3 +2,15 @@
   <h3 class="scifi-home-head">Your Favourites</h3>
   <p class="scifi-home-low">Movies</p>
 </div>
+
+<div *ngFor="let value of newValues">
+  <p>
+    {{value.id}}
+  </p>
+  <p>
+    {{value.name}}
+  </p>
+  <p>
+    {{value.reaction}}
+  </p>
+</div>
