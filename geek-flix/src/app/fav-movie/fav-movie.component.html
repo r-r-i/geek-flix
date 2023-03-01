@@ -3,14 +3,15 @@
   <p class="scifi-home-low">Movies</p>
 </div>
 
-<div *ngFor="let value of newValues">
-  <p>
-    {{value.id}}
-  </p>
-  <p>
-    {{value.name}}
-  </p>
-  <p>
-    {{value.reaction}}
-  </p>
+<div class="wrapper-grid">
+  <!-- TODO: Show the list in an *ngIf=showAll -->
+  <div *ngFor="let movie of favouriteMovies" class="container">
+    <img
+      src="https://image.tmdb.org/t/p/w780{{ movie.poster_path }}"
+      alt="thumbnail"
+      class="thumbnail-img"
+    />
+    <p class="home-text">{{ movie.name }}</p>
+    <p class="home-date">{{ movie.date }}</p>
+  </div>
 </div>

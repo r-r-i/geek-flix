@@ -114,6 +114,8 @@ export class HomeCardComponent {
     let reaction = {
       id: this.movieSelected.id,
       name: this.movieSelected.title,
+      date: this.movieSelected.release_date,
+      poster_path: this.movieSelected.poster_path,
       reaction: 'favourite',
     };
     localStorage.setItem(this.movieSelected.title, JSON.stringify(reaction));

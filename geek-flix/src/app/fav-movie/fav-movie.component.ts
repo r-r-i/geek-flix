@@ -9,8 +9,7 @@ import { IReactions } from '../shared-types/paginated-movies.model';
 export class FavMovieComponent {
 @Input() movieTitle: string;
 
-  newValues: any = [];
-
+  favouriteMovies: any = [];
 
   ngOnInit(): void {
     this.getLocalStorageData();
@@ -21,38 +20,10 @@ export class FavMovieComponent {
       let item = JSON.parse(localStorage.getItem(data) || '{}');
 
       if(item.reaction == 'favourite') {
-        this.newValues.push(item)
-        console.log('hello', this.newValues)
+        this.favouriteMovies.push(item)
+        console.log('hello', this.favouriteMovies)
       }
-
     })
-
-
-
-
-
-
-
-
-  // let values = [],
-  //   keys = Object.keys(localStorage),
-  //   i = keys.length;
-
-  //   while ( i-- ) {
-
-  //     values.push(localStorage.getItem(keys[i]));
-  //   }
-  //   console.log(values);
-  //   console.log(values[0])
-
-  //   if (values[0]?.includes('upvote')) {
-  //     console.log('hello')
-  //   }
-
-
-
-
-
 
   }
 }
