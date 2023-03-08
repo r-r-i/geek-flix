@@ -1,4 +1,3 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Spectator, createComponentFactory, byTestId } from '@ngneat/spectator';
 import { of } from 'rxjs/internal/observable/of';
 import { MovieDataService } from '../services/movie-data.service';

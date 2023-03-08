@@ -1,5 +1,7 @@
 import { Spectator, createComponentFactory, byTestId } from '@ngneat/spectator';
+import { MockComponent } from 'ng-mocks';
 import { of } from 'rxjs/internal/observable/of';
+import { FavMovieComponent } from '../fav-movie/fav-movie.component';
 import { MovieDataService } from '../services/movie-data.service';
 import {
   IBasicMovie,
@@ -8,13 +10,15 @@ import {
 
 import { HomeCardComponent } from './home-card.component';
 
-fdescribe('HomeCardComponent', () => {
+describe('HomeCardComponent', () => {
   let spectator: Spectator<HomeCardComponent>;
   const createComponent = createComponentFactory({
     component: HomeCardComponent,
     imports: [],
     providers: [],
-    declarations: [],
+    declarations: [
+      MockComponent(FavMovieComponent)
+    ],
     mocks: [MovieDataService],
     componentMocks: [],
     detectChanges: false,
@@ -35,6 +39,10 @@ fdescribe('HomeCardComponent', () => {
         release_date: '2023.02.15',
       } as IBasicMovie,
     ];
+
+    movieDataService.getTopMovies.and.returnValue(
+      of({ results: movies } as IPaginatedMovies)
+    );
 
     movieDataService.getTopMovies.and.returnValue(
       of({ results: movies } as IPaginatedMovies)
@@ -84,7 +92,7 @@ fdescribe('HomeCardComponent', () => {
     }
   });
 
-  xit('should allow a user to click on a movie and see the details component', () => {});
+  it('should allow a user to click on a movie and see the details component', () => {});
 
   xit('should ', () => {});
 
@@ -92,3 +100,4 @@ fdescribe('HomeCardComponent', () => {
 
   xit('should ', () => {});
 });
+

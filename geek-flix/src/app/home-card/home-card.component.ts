@@ -20,7 +20,7 @@ export class HomeCardComponent {
   movies: IBasicMovie[];
   movieSelected: IBasicMovie;
   selectedMovieId: number;
-  movieId: number;
+  // movieId: number;
   noMovies: boolean;
   reactionData: IReactions;
   showDetailedMovie = false;
@@ -56,10 +56,10 @@ export class HomeCardComponent {
           this.noMovies = true;
         }
       });
-    this.movieDataService.currentMovieId.subscribe((movieId) => {
-      this.movieId = movieId;
-      console.log('movieId:', movieId);
-    });
+    // this.movieDataService.currentMovieId.subscribe((movieId) => {
+      // this.movieId = movieId;
+      // console.log('movieId:', movieId);
+    // });
   }
   handleMovieClickEvent(movie: IBasicMovie) {
     this.movieSelected = movie;

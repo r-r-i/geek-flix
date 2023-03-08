@@ -39,7 +39,7 @@ body {
   border-radius: 2px;
 }
 .thumbnail-img:hover {
-  border: 3px solid orange;
+  border: 1.5px solid hsla(0, 0%, 100%, .45); ;
   cursor: pointer;
 }
 .home-text {

@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+    
         {
             "name": "Attach to Chrome",
             "port": 9222,
@@ -13,10 +14,17 @@
         },
         {
             "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}"
+            "request": "attach",
+            "name": "Attach to Karma tests",
+            "address": "localhost",
+            "port": 9333,
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "pathMapping": {
+                "/": "${webRoot}",
+                "/base/": "${webRoot}",
+                "/_karma_webpack_": "${workspaceFolder}",
+            }
         }
     ]
 }

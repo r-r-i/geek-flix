@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { IReactions } from '../shared-types/paginated-movies.model';
 
 @Component({
   selector: 'app-fav-movie',
@@ -8,8 +7,9 @@ import { IReactions } from '../shared-types/paginated-movies.model';
 })
 export class FavMovieComponent {
 @Input() movieTitle: string;
+  // Fix this by making a shared type.
+  favouriteMovies: Array<{date: string, id: number, name: string, poster_path: string, reaction: string }> = [];
 
-  favouriteMovies: any = [];
 
   ngOnInit(): void {
     this.getLocalStorageData();
@@ -19,9 +19,8 @@ export class FavMovieComponent {
     Object.keys(localStorage).forEach(data => {
       let item = JSON.parse(localStorage.getItem(data) || '{}');
 
-      if(item.reaction == 'favourite') {
+      if (item.reaction == 'favourite') {
         this.favouriteMovies.push(item)
-        console.log('hello', this.favouriteMovies)
       }
     })
 

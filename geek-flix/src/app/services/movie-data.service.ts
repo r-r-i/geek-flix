@@ -8,8 +8,8 @@ import { IPaginatedMovies } from '../shared-types/paginated-movies.model';
 })
 export class MovieDataService {
 
-  private movieIdSource = new BehaviorSubject<number>(123);
-  currentMovieId = this.movieIdSource.asObservable();
+  // private movieIdSource = new BehaviorSubject<number>(123);
+  // currentMovieId = this.movieIdSource.asObservable();
 
   api_key: "api_key=9279f87c4b7f1cb1474b6d7cd6958a6";
 
@@ -17,10 +17,10 @@ export class MovieDataService {
   constructor(private http: HttpClient) { }
 
 
-  changeMovieId(movieId: number) {
-    this.movieIdSource.next(movieId);
-    this.getSimilarMovies(movieId);
-  }
+  // changeMovieId(movieId: number) {
+  //   // this.movieIdSource.next(movieId);
+  //   this.getSimilarMovies(movieId);
+  // }
 
   public getTopMovies(): Observable<IPaginatedMovies> {
     // TODO: Break up the string generation. Base, action, params, key
